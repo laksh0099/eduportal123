@@ -1,0 +1,453 @@
+#root {
+  /* max-width: 1280px; */
+  width: 100%;
+  margin: 0px;
+  text-align: center;
+  display: flex;
+  position: fixed;
+  z-index: 0;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.rowdies-light {
+  font-family: "Rowdies", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+.rowdies-regular {
+  font-family: "Rowdies", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.rowdies-bold {
+  font-family: "Rowdies", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.francois-one-regular {
+  font-family: "Francois One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+#navbar
+{
+  background-color: #bbb;
+  display: flex;
+  width: 100%;
+  height: 10%;
+}
+
+#school
+{
+  color: black;
+}
+
+#icon
+{
+  width: fit-content;
+  height: fit-content;
+  background-color: white;
+  color: black;
+}
+
+/* App.css */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+}
+
+.heading-bar {
+  width: 100%;
+  background-color: #333;
+  color: white;
+}
+.content {
+  max-height: 675px;
+  display: flex;
+  flex: 1;
+}
+.main-content {
+  height: 625px;
+  flex: 1;
+  padding: 1rem;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.options-bar {
+  width: 200px;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.options-bar button {
+  margin-top: 5px;
+  padding: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #333;
+}
+.options-bar button:hover, button:focus, button:active {
+  background-color: white;
+  color: #333;
+}
+
+/* Login form .css */
+.form-popup {
+  margin-inline: auto;
+  margin-top: 40px;
+  border: 3px solid #f1f1f1;
+  z-index: 10;
+  background-color: white;
+  border-radius: 10px;
+}
+.form-popup .btn{
+  background-color: #04AA6D;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  margin-block: 5%;
+}
+.form-container{
+  max-width: 300px;
+  padding: 20px;
+}
+.form-con{
+  height: fit-content;
+  max-height: 550px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  max-width: 30%;
+  padding: 10px;
+  border: 2px solid #05a;
+  border-top: none;
+  margin-inline: auto;
+}
+.form-container input[type=text], .form-container input[type=password], .form-container input[type=number] {
+  width: 90%;
+  padding: 5px;
+  margin-top: 5px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  color: #282c34;
+  border-radius: 10px;
+}
+.form-con input[type=text], .form-con input[type=password], .form-con input[type=number] {
+  margin-inline: auto;
+  width: 85%;
+  margin-bottom: 5px;
+  border: 1px solid black;
+  background-color: #fffdfd;
+  color: #282c34;
+  border-radius: 5px;
+}
+.form-con label{
+  margin-left: 5%;
+  margin-right: auto;
+}
+
+.username
+{
+  color: white;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-inline: 5px;
+  min-width: 150px;
+  max-width: 250px;
+  cursor: pointer;
+}
+
+/* Timetable.css */
+.timetable-container {
+  margin-top: 25px;
+  padding: 10px;
+  max-height: 600px;
+}
+.timetable-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.timetable-container h4 {
+  text-align: center;
+  margin: 0px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+th {
+  background-color: #f2f2f2;
+}
+
+/* Cards.css */
+.boy_card, .girl_card{
+  color: #282c34;
+  border: 2px solid #098;
+  border-radius: 10px;
+  height: 300px;
+  width: 15%;
+  margin-inline: 5px;
+  margin-block: 5px;
+  padding: 20px;
+  max-height: 500px;
+}
+.girl_card{
+  border: 2px solid #e99;
+}
+.student_grid {
+  margin-inline: auto;
+  display: flex;
+  flex-flow: row wrap;
+  width: 95%;
+  overflow-y: auto;
+  padding-block: 10px;
+  scrollbar-width: none;
+  justify-content: center;
+  border: 3px solid #ee5;
+  border-top: none;
+}
+.faculty_grid {
+  margin-inline: auto;
+  display: flex;
+  flex-flow: row wrap;
+  width: 95%;
+  overflow-y: auto;
+  padding-block: 10px;
+  scrollbar-width: none;
+  justify-content: center;
+  border: 3px solid #f10;
+  border-top: none;
+}
+
+/* Dashboard.css */
+.dashboard-main{
+  height: 625px;
+  overflow-y: scroll;
+  width: 100%;
+  scrollbar-width: none;
+  display: flex;
+  position: absolute;
+}
+.dashboard-main .custom-datepicker {
+  /* border: 1px solid #ccc; */
+  border-radius: 10px;
+  /* padding: 8px; */
+  width: 200px;
+}
+.dashboard-main .react-datepicker__input-container input {
+  width: 300px;
+  height: 35px;
+  margin: 5%;
+  margin-inline: auto;
+  background-color: white;
+  color: black;
+  outline: none;
+  border: 2px solid #282c34;
+}
+.dashboard-main .react-datepicker__input-container{
+  position: relative;
+  z-index: 500;
+}
+.dashboard-main .react-datepicker-popper{
+  z-index: 1000;
+}
+.dashboard-main button{
+  background-color: #333;
+  padding: auto;
+  height: 45px;
+  margin-top: 5%;
+}
+.dashboard-main input,select{
+  color: black;
+  height: 35px;
+  width: 300px;
+  border-radius: 10px;
+  margin: auto;
+  background-color: white;
+  border: 2px solid #282c34;
+}
+.fc{
+  width: 80%;
+  margin: 0px;
+  max-height: 575px;
+  margin-left: auto;
+  margin-right : auto;
+}
+.fc-header-toolbar{
+  background-color: #333;
+  color: #f4f4f4;
+  margin-bottom: 0px;
+  padding: 10px;
+  border-radius: 10px;
+  width: 90%;
+  margin-inline: auto;
+}
+.fc-daygrid{
+  width: 90%;
+  max-height: 550px;
+  height: 550px;
+  scrollbar-width: none;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
+.fc-scroller{
+  scrollbar-width: none;
+}
+.fc-scroller-liquid-absolute{
+  overflow-x: scroll;
+  overflow-y: scroll;
+  position: fixed;
+  width: auto;
+  scrollbar-width: none;
+
+}
+.fc-daygrid-day-events {
+  height: 100%;
+  max-height: 20px;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+
+.marks-container{
+  margin-inline: auto;
+  width: 80%;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  max-height: 625px;
+  border: 2px solid #05a;
+  border-top: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* .fail {
+  width: 40%;
+  height: fit-content;
+  background-color: #f10;
+  color: white;
+  /* animation-name: example;
+  /* animation-duration: 2s;
+  /* z-index: 4000;
+  display: flex;
+  position: relative;
+}
+.success {
+  width: 40%;
+  height: fit-content;
+  background-color: #098;
+  color: white;
+  /* animation-name: example;
+  /* animation-duration: 2s;
+  /* z-index: 4000;
+  display: flex;
+  position: relative;
+}*/
+
+/* Message.css */
+@keyframes example {
+  from {display:flex;}
+  to {display: none;}
+}
+.success, .fail {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  /* position: fixed; */
+  transform: translate(60%, 0%);
+  padding-left: 10px;
+  width: fit-content;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 3000;
+  position: absolute;
+  text-align: center;
+  animation-name: example;
+  animation-duration: 2s;
+  height: fit-content;
+}
+.success {
+  background-color: #3c3;
+}
+.fail {
+  background-color: #c33;
+}
+.success button, .fail button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.success button:hover, .fail button:hover {
+  background-color: #004080;
+}
+
+.alert{
+  width: fit-content;
+  padding: 5px;
+  margin-inline: auto;
+}
+.alert .rs-btn-close{
+  background-color: rgba(255, 255, 255, 0);
+  width: 0px;
+  height: 0px;
+  border: none;
+  padding: 0%;
+  margin-top: 0%;
+  margin-right: 5%;
+}
+.alert .rs-icon{
+  margin-left: 0%;
+  margin-top: 0px;
+}
