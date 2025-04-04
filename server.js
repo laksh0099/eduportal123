@@ -88,7 +88,7 @@ app.post('/api/auth/changestudentpassword', async (req, res) => {
             { Password: password },
             { new: true }
         );
-        if (updated) return res.json(true);
+        if (updated) return res.status(200).json(true);
         res.status(401).json({ message: 'Invalid credentials' });
   } catch (err) {
         res.status(500).json({ error: err.message });
@@ -101,7 +101,7 @@ app.post('/api/auth/getmarks', async (req, res) => {
     const { username } = req.body;
     const collection = database.collection('Grades')
     const grades = await collection.find({ StudentId: username });
-    res.json(grades);
+    res.status(200).json(grades);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -112,7 +112,7 @@ app.post('/api/auth/getstt', async (req, res) => {
     const { Room_no } = req.body;
     const collection = database.collection('Class')
     const timetable = await collection.findOne({ RoomNumber : Room_no });
-    res.json(timetable);
+    res.status(200).json(timetable);
   } catch (err) {
     res.status(500).json({ error: `Internal server error: ${err.message}` });
   }
@@ -122,7 +122,7 @@ app.post('/api/auth/getevents', async (req, res) => {
   try {
     const collection = database.collection('Calendar')
     const events = await collection.find();
-    res.json(events);
+    res.status(200).json(events);
   } catch (err) {
     res.status(500).json({ error: `Internal server error: ${err.message}` });
   }
