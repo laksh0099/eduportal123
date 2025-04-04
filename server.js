@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 //   useUnifiedTopology: true
 // });
 // const client = new MongoClient(mongoURI);
-const client = new MongoClient(uri, {
+const client = new MongoClient(mongoURI, {
   serverApi: {
     version: ServerApiVersion.v1,
     strict: true,
