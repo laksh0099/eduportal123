@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 // const client = new MongoClient(mongoURI);
 const client = new MongoClient(mongoURI, {
   serverApi: {
-    version: ServerApiVersion.v1,
+    version: '1',
     strict: true,
     deprecationErrors: true,
   }
