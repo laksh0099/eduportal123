@@ -15,15 +15,12 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const client = new MongoClient(mongoURI);
-await client.connect();
-const database = client.db('School');
-
 // MongoDB Connection
 // mongoose.connect('mongodb://localhost:27017/School', {
 //   useNewUrlParser: true,
 //   useUnifiedTopology: true
 // });
+// const client = new MongoClient(mongoURI);
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -31,7 +28,11 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   }
 });
-
+await client.connect();
+const database = client.db('School');
+const temp = database.collection('Students');
+const res = await collection.findOne({Division: 'A'});
+console.log(res);
 // MongoDB Schemas
 const StudentSchema = new mongoose.Schema({
   Year: Number,
