@@ -19,9 +19,16 @@ await client.connect();
 const database = client.db('School');
 
 // MongoDB Connection
-mongoose.connect('mongodb://localhost:27017/School', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
+// mongoose.connect('mongodb://localhost:27017/School', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// });
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
 });
 
 // MongoDB Schemas
