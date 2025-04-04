@@ -3,13 +3,17 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import { default as mongodb } from 'mongodb';
 import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config();
+const mongoURI = process.env.MONGO_URI;
 
 const MongoClient = mongodb.MongoClient;
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const client = new MongoClient('mongodb://localhost:27017');
+const client = new MongoClient(mongoURI);
 await client.connect();
 const database = client.db('School');
 
