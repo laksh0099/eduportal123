@@ -48,11 +48,11 @@ function LoginForm({ onLogin }) {
             try{
                 if(logger === 'Student')
                 {
-                    const response = await axios.post("http://localhost:5000/api/auth/changestudentpassword", {username: username, password: confirmPassword});
+                    const response = await axios.post("https://eduportal123-evbm.onrender.com/api/auth/changestudentpassword", {username: username, password: confirmPassword});
                 }
                 else
                 {
-                    const response = await axios.post("http://localhost:5000/api/auth/changefacultypassword", {username: username, password: confirmPassword});
+                    const response = await axios.post("https://eduportal123-evbm.onrender.com/api/auth/changefacultypassword", {username: username, password: confirmPassword});
                 }
                 // if(response.data == true)
                 // {
