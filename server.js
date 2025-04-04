@@ -1,10 +1,17 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import { default as mongodb } from 'mongodb';
+import cors from 'cors';
 
-
+const MongoClient = mongodb.MongoClient;
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
+
+const client = new MongoClient('mongodb://localhost:27017');
+await client.connect();
+const database = client.db('School');
 
 // MongoDB Connection
 mongoose.connect('mongodb://localhost:27017/School', {
@@ -42,34 +49,35 @@ const GradesSchema = new mongoose.Schema({
 });
 const Grades = mongoose.model('Grades', GradesSchema);
 
-// Login API
+// Student login
 app.post('/api/auth/login', async (req, res) => {
   try {
     const { username, password } = req.body;
-    const student = await Student.findOne({ Password: password, Roll_no: Number(username.substring(5, 7)), Division: username[4], Year: Number(username.substring(0, 4)) });
-    console.log(student)
-    if (student) {
-      return res.json(student);
+    const collection = database.collection('Students');
+    const student = await collection.findOne({ Password: password, Roll_no: Number(username.substring(5, 7)), Division: username[4], Year: Number(username.substring(0, 4)) });
+    if (student != null) {
+        return res.status(200).json(student);
     }
     res.status(401).json({ message: 'Invalid credentials' });
-  } catch (err) {
+} catch (err) {
     res.status(500).json({ error: err.message });
-  }
+}
 });
 
 // Change Student Password API
 app.post('/api/auth/changestudentpassword', async (req, res) => {
-  try {
-    const { username, password } = req.body;
-    const updated = await Student.findOneAndUpdate(
-      { Roll_no: Number(username.substring(5, 7)), Division: username[4], Year: Number(username.substring(0, 4)) },
-      { Password: password },
-      { new: true }
-    );
-    if (updated) return res.json(true);
-    res.status(401).json({ message: 'Invalid credentials' });
+    try {
+        const { username, password } = req.body;
+        const collection = database.collection('Students');
+        const updated = await collection.findOneAndUpdate(
+            { Roll_no: Number(username.substring(5, 7)), Division: username[4], Year: Number(username.substring(0, 4)) },
+            { Password: password },
+            { new: true }
+        );
+        if (updated) return res.json(true);
+        res.status(401).json({ message: 'Invalid credentials' });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+        res.status(500).json({ error: err.message });
   }
 });
 
@@ -77,7 +85,8 @@ app.post('/api/auth/changestudentpassword', async (req, res) => {
 app.post('/api/auth/getmarks', async (req, res) => {
   try {
     const { username } = req.body;
-    const grades = await Grades.find({ StudentId: username });
+    const collection = database.collection('Grades')
+    const grades = await collection.find({ StudentId: username });
     res.json(grades);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -86,7 +95,7 @@ app.post('/api/auth/getmarks', async (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(Server running on port ${PORT});
 }).on("error", (err) => {
   console.error("Error starting server:", err);
 });
