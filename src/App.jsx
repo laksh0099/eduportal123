@@ -30,9 +30,9 @@ function App() {
     setPassword(password);
     try {
         if(logger == 'Student')
-          setResponse(await axios.post('http://localhost:5000/api/auth/login', { username, password }))
+          setResponse(await axios.post('https://eduportal123-evbm.onrender.com/api/auth/login', { username, password }))
         else
-          setResponse(await axios.post('http://localhost:5000/api/auth/faculty_login', { username, password }))
+          setResponse(await axios.post('https://eduportal123-evbm.onrender.com/api/auth/faculty_login', { username, password }))
         if (response.data) {
           setData(response.data);
           setMessage('Login successful');
