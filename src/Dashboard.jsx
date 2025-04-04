@@ -4,7 +4,6 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-// import MuiAlert from '@material-ui/lab/Alert'
 // import { Message, Notification } from 'rsuite';
 // import 'rsuite/dist/rsuite.min.css'
 import { ReactNotifications, Store } from 'react-notifications-component';
