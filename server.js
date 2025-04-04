@@ -31,7 +31,7 @@ const client = new MongoClient(mongoURI, {
 await client.connect();
 const database = client.db('School');
 const temp = database.collection('Students');
-const res = await collection.findOne({Division: 'A'});
+const res = await temp.findOne({Division: 'A'});
 console.log(res);
 // MongoDB Schemas
 const StudentSchema = new mongoose.Schema({
