@@ -29,8 +29,11 @@ function App() {
     setLogger(logger);
     setPassword(password);
     try {
+        const uri = 'https://eduportal123-evbm.onrender.com/api/auth/login';
+        console.log(window.location.href);
+        console.log(uri);
         if(logger == 'Student')
-          setResponse(await axios.post('https://eduportal123-evbm.onrender.com/api/auth/login', { username, password }))
+          setResponse(await axios.post(uri, { username, password }))
         else
           setResponse(await axios.post('https://eduportal123-evbm.onrender.com/api/auth/faculty_login', { username, password }))
         if (response.data) {
