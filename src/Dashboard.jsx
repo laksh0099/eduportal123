@@ -21,7 +21,7 @@ const Dashboard = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.post('http://localhost:5000/api/auth/getevents');
+        const response = await axios.post('https://eduportal123-evbm.onrender.com/api/auth/getevents');
         const fetchedEvents = response.data.map(event => ({
           id: event.id,
           title: event.title,
@@ -50,7 +50,7 @@ const Dashboard = (props) => {
         type: newEventType
       };
       try {
-        const response = await axios.post('http://localhost:5000/api/auth/setevents', {Title: newEventTitle, DateTime: newEventDate, Type: newEventType});
+        const response = await axios.post('https://eduportal123-evbm.onrender.com/api/auth/setevents', {Title: newEventTitle, DateTime: newEventDate, Type: newEventType});
         if(response.data)
         {
           setEvents([...events, newEvent]);
@@ -119,7 +119,7 @@ const Dashboard = (props) => {
         Id: newEventId,
       };
       try {
-        const response = await axios.post('http://localhost:5000/api/auth/removeevents', { Id : newEventId});
+        const response = await axios.post('https://eduportal123-evbm.onrender.com/api/auth/removeevents', { Id : newEventId});
         if(response.data){
           {events.map((event, i) => (
             <div
