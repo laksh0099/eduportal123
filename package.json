@@ -11,12 +11,6 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.3.3",
-    "@fullcalendar/core": "^6.2.0",
-    "@fullcalendar/daygrid": "^6.2.0",
-    "@fullcalendar/react": "^6.2.0",
-    "@material-ui/core": "^5.0.0-alpha.61",
-    "@material-ui/lab": "^5.0.0-alpha.135",
-    "@remix-run/router": "^1.16.1",
     "@syncfusion/ej2-react-calendars": "^26.1.35",
     "axios": "^1.7.2",
     "bcrypt": "^5.1.1",
