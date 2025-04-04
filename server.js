@@ -107,6 +107,27 @@ app.post('/api/auth/getmarks', async (req, res) => {
   }
 });
 
+app.post('/api/auth/getstt', async (req, res) => {
+  try {
+    const { Room_no } = req.body;
+    const collection = database.collection('Class')
+    const timetable = await collection.findOne({ RoomNumber : Room_no });
+    res.json(timetable);
+  } catch (err) {
+    res.status(500).json({ error: `Internal server error: ${err.message}` });
+  }
+});
+
+app.post('/api/auth/getevents', async (req, res) => {
+  try {
+    const collection = database.collection('Calendar')
+    const events = await collection.find();
+    res.json(events);
+  } catch (err) {
+    res.status(500).json({ error: `Internal server error: ${err.message}` });
+  }
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
